@@ -7,8 +7,12 @@ clusterGroup:
     - golang-external-secrets
     - config-demo
     - hello-world
-    - openshift-file-integrity
-    - openshift-compliance
+    - openshift-file-integrity:
+        operatorGroup: true
+        targetNamespaces: ""
+    - openshift-compliance:
+        operatorGroup: true
+        targetNamespaces: ""
   subscriptions:
     acm:
       name: advanced-cluster-management

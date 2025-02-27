@@ -7,14 +7,26 @@ clusterGroup:
     - golang-external-secrets
     - config-demo
     - hello-world
+    - openshift-file-integrity
+    - openshift-compliance
   subscriptions:
     acm:
       name: advanced-cluster-management
       namespace: open-cluster-management
-      channel: release-2.11
+      channel: release-2.12
       #csv: advanced-cluster-management.v2.6.1
+    cso:
+      name: container-security-operator
+      channel: stable-3.9
+    fio:
+      name: file-integrity-operator
+      namespace: openshift-file-integrity
+    compliance-operator:
+      name: compliance-operator
+      namespace: openshift-compliance
   projects:
     - hub
+    - rhug
     - config-demo
     - hello-world
   # Explicitly mention the cluster-state based overrides we plan to use for this pattern.
@@ -71,6 +83,11 @@ clusterGroup:
       namespace: hello-world
       project: hello-world
       path: charts/all/hello-world
+#    compliance:
+#    security:
+#    fio:
+#    acm:
+    
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

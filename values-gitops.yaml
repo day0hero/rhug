@@ -23,16 +23,13 @@ clusterGroup:
     - config-demo
     - hello-world
     - rhug
-  subscriptions:
-    cso:                                                                                                                                                      
-      name: container-security-operator                                                                                                                       
-      channel: stable-3.9                                                                                                                                     
-    fio:                                                                                                                                                      
-      name: file-integrity-operator                                                                                                                           
-      namespace: openshift-file-integrity                                                                                                                     
-    compliance-operator:                                                                                                                                      
-      name: compliance-operator                                                                                                                               
-      namespace: openshift-compliance     
+  subscriptions:                                                                                                                    
+    fio:
+      name: file-integrity-operator
+      namespace: openshift-file-integrity
+    compliance-operator:
+      name: compliance-operator
+      namespace: openshift-compliance
   applications:
     golang-external-secrets:
       name: golang-external-secrets
@@ -51,11 +48,20 @@ clusterGroup:
       project: hello-world
       path: charts/all/hello-world
     fio:
-      name: file-integrity-operator
+      name: file-integrity
       namespace: openshift-file-integrity
       project: rhug
       path: charts/all/rhug/fio
-    
+    compliance:
+      name: openshift-compliance
+      namespace: openshift-compliance
+      project: rhug
+      path: charts/all/rhug/openshift-compliance-operator
+    rhacm-policies:
+      name: rhacm-policies
+      namespace:
+      project: rhug
+      path: charts/all/rhug/rhacm-policies
     
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm

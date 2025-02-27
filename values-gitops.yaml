@@ -10,12 +10,29 @@ clusterGroup:
     - config-demo
     - hello-world
     - golang-external-secrets
+    - openshift-file-integrity:
+        operatorGroup: true
+        targetNamespaces: ""
+    - openshift-compliance:
+        operatorGroup: true
+        targetNamespaces: ""
   # The only subscription on spokes is gitops which gets managed by ACM
   # subscriptions:
   projects:
     - eso
     - config-demo
     - hello-world
+    - rhug
+  subscriptions:
+    cso:                                                                                                                                                      
+      name: container-security-operator                                                                                                                       
+      channel: stable-3.9                                                                                                                                     
+    fio:                                                                                                                                                      
+      name: file-integrity-operator                                                                                                                           
+      namespace: openshift-file-integrity                                                                                                                     
+    compliance-operator:                                                                                                                                      
+      name: compliance-operator                                                                                                                               
+      namespace: openshift-compliance     
   applications:
     golang-external-secrets:
       name: golang-external-secrets
@@ -33,6 +50,7 @@ clusterGroup:
       namespace: hello-world
       project: hello-world
       path: charts/all/hello-world
+    
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

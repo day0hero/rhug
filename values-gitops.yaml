@@ -12,9 +12,9 @@ clusterGroup:
     - openshift-file-integrity:
         operatorGroup: true
         targetNamespaces: ""
-#    - openshift-compliance:
-#        operatorGroup: true
-#        targetNamespaces: ""
+    - openshift-compliance:
+        operatorGroup: true
+        targetNamespaces: ""
   # The only subscription on spokes is gitops which gets managed by ACM
   # subscriptions:
   projects:
@@ -25,9 +25,9 @@ clusterGroup:
     fio:
       name: file-integrity-operator
       namespace: openshift-file-integrity
-#    compliance-operator:
-#      name: compliance-operator
-#      namespace: openshift-compliance
+    compliance-operator:
+      name: compliance-operator
+      namespace: openshift-compliance
   applications:
     golang-external-secrets:
       name: golang-external-secrets
@@ -43,7 +43,7 @@ clusterGroup:
     banner:
       name: console-banner
       project: rhug
-      path: charts/all/console-banner
+      path: charts/all/rhug/console-banner
     fio:
       name: file-integrity
       namespace: openshift-file-integrity

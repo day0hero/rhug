@@ -9,9 +9,9 @@ clusterGroup:
   namespaces:
     - hello-world
     - golang-external-secrets
-#    - openshift-file-integrity:
-#        operatorGroup: true
-#        targetNamespaces: ""
+    - openshift-file-integrity:
+        operatorGroup: true
+        targetNamespaces: ""
 #    - openshift-compliance:
 #        operatorGroup: true
 #        targetNamespaces: ""
@@ -22,9 +22,9 @@ clusterGroup:
     - hello-world
     - rhug
   subscriptions:                                                                                                                    
-#    fio:
-#      name: file-integrity-operator
-#      namespace: openshift-file-integrity
+    fio:
+      name: file-integrity-operator
+      namespace: openshift-file-integrity
 #    compliance-operator:
 #      name: compliance-operator
 #      namespace: openshift-compliance
@@ -35,21 +35,20 @@ clusterGroup:
       project: eso
       chart: golang-external-secrets
       chartVersion: 0.1.*
-    config-demo:
-      name: config-demo
-      namespace: config-demo
-      project: config-demo
-      path: charts/all/config-demo
     hello-world:
       name: hello-world
       namespace: hello-world
       project: hello-world
       path: charts/all/hello-world
-#    fio:
-#      name: file-integrity
-#      namespace: openshift-file-integrity
-#      project: rhug
-#      path: charts/all/rhug/fio
+    banner:
+      name: console-banner
+      project: rhug
+      path: charts/all/console-banner
+    fio:
+      name: file-integrity
+      namespace: openshift-file-integrity
+      project: rhug
+      path: charts/all/rhug/fio
 #    compliance:
 #      name: openshift-compliance
 #      namespace: openshift-compliance

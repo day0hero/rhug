@@ -4,6 +4,7 @@
 
 #FIO Configuration
 fio:
+  name: file-integrity-operator
   namespace: openshift-file-integrity
   config:
     enable: false

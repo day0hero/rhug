@@ -4,6 +4,6 @@
 
 #Production values
 clusterName: gitops
-backgroundColor: '#0071BC' # blue
+backgroundColor: '#12890e' # green
 textColor: '#FFFFFF' # white
 location: BannerTop
